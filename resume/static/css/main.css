@@ -19,10 +19,10 @@ h1, h2, h3, h4, h5, h6 {
     
     margin-top:-100px;
     height:100px;
-    position:absolute;
-    bottom:0;
+    position:relative;
+    bottom:10px;
     width:100%;
-    padding-top: 0%;
+    padding-top: 5%;
 
     /*position: relative;
     margin-top: -150px; 

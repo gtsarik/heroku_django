@@ -1,0 +1,43 @@
+/* Global Styles */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+/* Indent information line */
+.alert {
+    margin-top: 10px;
+}
+
+/* Footer Styles */
+#footer {
+    padding-top: 30px;
+    position: absolute; 
+    bottom: 0;
+    height: 20px;
+}
+
+.table {
+    border-bottom: 2px solid #dddddd;
+}
+
+/* Button registration or authorization selector */
+#btn-authorization, #btn-registration, #user-registr {
+    margin-top: 25px;
+}
+
+/* ERRORS*/
+span.first_name, .last_name {
+    color: red;
+}
+
+/* Form Styles */
+textarea,
+select,
+input {
+max-width: 300px;
+}
+
+.table-head {
+    color: blue;
+}
+

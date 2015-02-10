@@ -172,7 +172,7 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # Media files
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(STATICFILES_DIRS, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # CAPTCHA settings
 RECAPTCHA_PUBLIC_KEY = '76wtgdfsjhsydt7r5FFGFhgsdfytd656sad75fgh'

@@ -32,13 +32,14 @@ class CheckInView(CreateView):
             return u'%s?status_message=Во время регистрации возникла ошибка' \
             % (reverse('checkin'))
         else:
+            self.request.session['user_log'] = u''
             log_name = unicode.encode(self.request.POST.get(u'login', ''), 'utf8')
             success_message = 'Пользователь %s успешно зарегистрирован.' % (
                 log_name)
             messages.success(self.request, success_message)
         
         return u'%s?status_message=Регистрация прошла успешно' \
-            % (reverse('home'))
+            % (reverse('login'))
 
     def get_context_data(self, **kwargs):
         context = super(CheckInView, self).get_context_data(**kwargs)

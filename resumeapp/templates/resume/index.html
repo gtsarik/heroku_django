@@ -1,0 +1,90 @@
+{% extends "resume/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block meta_title%}Главная{% endblock meta_title%}
+
+{% block title %}{{ current_user.first_name }} {{ current_user.last_name }}{% endblock title %}
+
+{% block content %}
+
+    <div>
+        {% if current_user.photo %}
+            <img class="img-thumbnail" height="150" width="150" src="{{ current_user.photo.url }}">
+        {% else %}
+            <img class="img-thumbnail" height="150" width="150" src="{{ DOMEN_URL }}{% static "img/default.png" %}">
+        {% endif %}
+    </div>
+
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th class="table-head">EXPERIENCE</th>
+                <th class="table-head">SKILLS</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td><h5>EXPERIENCE SUMMARY:</h5></td>
+                <td>
+                    {% if current_user.experience_summary %}
+                        {% for n in experience_summary %}
+                            {{ n }}<br>
+                        {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td><h5>DEVELOPERS and TECHNICAL SKILLS::</h5></td>
+                <td>
+                    {% if current_user.technical_skills %}
+                        {% for n in technical_skills %}
+                            {{ n }}<br>
+                        {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td><h5>WORK EXPERIENCE:</h5></td>
+                <td>
+                    {% if current_user.work_experience %}
+                        {% for n in work_experience %}
+                            {{ n }}<br>
+                        {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td><h5>EDUCATION and TRAINING:</h5></td>
+                <td>
+                    {% if current_user.education %}
+                        {% for n in education %}
+                            {{ n }}<br>
+                        {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td><h5>PERSONAL SKILLS:</h5></td>
+                <td>
+                    {% if current_user.personal_skills %}
+                        {% for n in personal_skills %}
+                            {{ n }}<br>
+                        {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td><h5>LANGUAGES:</h5></td>
+                <td>
+                    {% if current_user.languages %}
+                        {% for n in languages %}
+                            {{ n }}<br>
+                        {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+
+{% endblock content%}

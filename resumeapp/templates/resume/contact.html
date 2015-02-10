@@ -1,0 +1,21 @@
+{% extends "resume/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block meta_title%}Контакты{% endblock meta_title%}
+
+{% block title %}Контакты кандидатов{% endblock title %}
+
+{% block content %}
+    
+    {% if users %}
+        {% for user in users %}
+            <address>
+                <strong>{{ user.first_name }} {{ user.last_name }}</strong><br>
+                <a href="mailto:{{ user.email }}">{{ user.email }}</a><br>
+                <abbr title="Мобильный">Тел.:</abbr> {{ user.mphone }}
+            </address>
+        {% endfor %}
+    {% endif %}
+
+{% endblock content%}

@@ -10,10 +10,31 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Footer Styles */
 #footer {
-    padding-top: 30px;
+    position: fixed; /* Фиксированное положение */
+    left: 0; bottom: 0; /* Левый нижний угол */
+    padding: 10px; /* Поля вокруг текста */
+    background: #39b54a; /* Цвет фона */
+    color: #fff; /* Цвет текста */
+    width: 100%; /* Ширина слоя */
+    
+    /*height:100px;
+    margin-top:-100px;
+
+    height:100px;
+    position:fixed;
+    bottom:0;
+    width:100%;*/
+
+    /*position: relative;
+    margin-top: -150px; 
+    height: 150px;
+    clear:both;*/
+
+    /*padding-top: 30px;
     position: absolute; 
     bottom: 0;
     height: 20px;
+    margin-top: 10px;*/
 }
 
 .table {

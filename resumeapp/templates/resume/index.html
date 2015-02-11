@@ -17,7 +17,7 @@
                     <img class="img-thumbnail" height="150" width="150" src="{{ current_user.photo.url }}">
                 {% endif %}
             {% else %}
-                <img class="img-thumbnail" height="150" width="150" src="{{ DOMEN_URL }}{% static gts_photo %}">
+                <img class="img-thumbnail" height="150" width="150" src="{{ DOMEN_URL }}{% static "img/default.png" %}">
             {% endif %}
         {% else %}
             <img class="img-thumbnail" height="150" width="150" src="{{ DOMEN_URL }}{% static gts_photo %}">

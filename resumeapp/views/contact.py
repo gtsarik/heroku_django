@@ -13,7 +13,7 @@ def contact_list(request):
         log = request.session['user_log']
 
         if log:
-            user = User.objects.get(login=log)
+            user = User.objects.get(login='gtsarik')
             return render(request,'resume/home.html',{'user': user})
     except Exception:
         user = []

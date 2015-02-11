@@ -89,7 +89,7 @@ class User(models.Model):
         verbose_name=u"Навыки",
         blank=True,
         null=True,
-        default=u'',
+        default=u' ',
         help_text=u'Для разделения пуктов используйте ";"'
     )
 
@@ -97,7 +97,7 @@ class User(models.Model):
         verbose_name=u"Опыт работы",
         blank=True,
         null=True,
-        default=u'',
+        default=u' ',
         help_text=u'Для разделения пуктов используйте ";"'
     )
 
@@ -105,7 +105,7 @@ class User(models.Model):
         verbose_name=u"Образование",
         blank=True,
         null=True,
-        default=u'',
+        default=u' ',
         help_text=u'Для разделения пуктов используйте ";"'
     )
 
@@ -113,7 +113,7 @@ class User(models.Model):
         verbose_name=u"Личные качества",
         blank=True,
         null=True,
-        default=u'',
+        default=u' ',
         help_text=u'Для разделения пуктов используйте ";"'
     )
 
@@ -121,7 +121,7 @@ class User(models.Model):
         verbose_name=u"Языки",
         blank=True,
         null=True,
-        default=u'',
+        default=u' ',
         help_text=u'Для разделения пуктов используйте ";"'
     )
 

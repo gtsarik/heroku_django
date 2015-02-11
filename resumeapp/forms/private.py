@@ -64,4 +64,4 @@ class PrivateForm(ModelForm):
         #     languages = data['languages']
         #     )
 
-        return super(UserForm, self).save(commit)
+        return super(PrivateForm, self).save(commit)

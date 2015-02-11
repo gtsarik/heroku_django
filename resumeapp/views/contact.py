@@ -8,12 +8,11 @@ from resumeapp.models.users import User
 def contact_list(request):
     user = []
 
-    auth = request.session['user_auth']
-    log = request.session['user_log']
-
     try:
-        if request.session['user_auth']:
-            user = User.objects.get(login=request.session['user_log'])
+        log = request.session['user_log']
+
+        if log:
+            user = User.objects.get(login=log)
             return render(request,'resume/home.html',{'user': user})
     except Exception:
         user = []
@@ -22,6 +21,5 @@ def contact_list(request):
         request,
         'resume/contact.html',
         {'user': user,
-        'log': log,
-        'auth': auth}
+        'log': log}
     )

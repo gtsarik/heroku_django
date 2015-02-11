@@ -24,15 +24,18 @@ class UserForm(forms.ModelForm):
         data['password'] += SALT_KEY
         password = hashlib.sha224(data['password']).hexdigest()
 
-        User.objects.filter(login=data['login']).update(
-            password=password,
-            experience_summary = data['experience_summary'],
-            technical_skills = data['technical_skills'],
-            work_experience = data['work_experience'],
-            education = data['education'],
-            personal_skills = data['personal_skills'],
-            languages = password
-            )
+        self.instance.password = password
+        self.instance.languages = password
+
+        # User.objects.filter(login=data['login']).update(
+        #     password=password,
+        #     experience_summary = data['experience_summary'],
+        #     technical_skills = data['technical_skills'],
+        #     work_experience = data['work_experience'],
+        #     education = data['education'],
+        #     personal_skills = data['personal_skills'],
+        #     languages = password
+        #     )
 
         return super(UserForm, self).save(commit)
 

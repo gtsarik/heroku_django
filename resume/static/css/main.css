@@ -17,11 +17,11 @@ h1, h2, h3, h4, h5, h6 {
     /*color: #fff;*/ /* Цвет текста */
     /*width: 100%;*/ /* Ширина слоя */
     
-    margin-top:-100px;
+    margin-top:30px;
     height:100px;
     position:relative;
     bottom:10px;
-    width:100%;
+    width:20%;
     padding-top: 10%;
 
     /*position: relative;

@@ -50,73 +50,78 @@ class PrivateForm(ModelForm):
 
     def save(self):
         data = self.cleaned_data
-        experience_summary = u''
-        technical_skills = u''
-        work_experience = u''
-        education = u''
-        personal_skills = u''
-        languages = u''
         data['password'] += SALT_KEY
-        data['password'] = hashlib.sha224(data['password']).hexdigest()
+        password = hashlib.sha224(data['password']).hexdigest()
 
-        first_name = data['first_name']
-        last_name = data['last_name'] 
-        login = data['login']
-        password = data['password']
-        email = data['email']
-        birthday = data['birthday']
-        mphone = data['mphone']
-        photo = data['photo']
+        User.objects.filter(login=data['login']).update(password=password)
 
-        try:
-            if data['experience_summary']:
-                experience_summary = data['experience_summary']
-        except Exception:
-            pass
+        
+        # experience_summary = u''
+        # technical_skills = u''
+        # work_experience = u''
+        # education = u''
+        # personal_skills = u''
+        # languages = u''
+        
 
-        try:
-            if data['technical_skills']:
-                technical_skills = data['technical_skills']
-        except Exception:
-            pass
+        # first_name = data['first_name']
+        # last_name = data['last_name'] 
+        # login = data['login']
+        # password = data['password']
+        # email = data['email']
+        # birthday = data['birthday']
+        # mphone = data['mphone']
+        # photo = data['photo']
 
-        try:
-            if data['work_experience']:
-                work_experience = data['work_experience']
-        except Exception:
-            pass
+        # try:
+        #     if data['experience_summary']:
+        #         experience_summary = data['experience_summary']
+        # except Exception:
+        #     pass
 
-        try:
-            if data['education']:
-                education = data['education']
-        except Exception:
-            pass
+        # try:
+        #     if data['technical_skills']:
+        #         technical_skills = data['technical_skills']
+        # except Exception:
+        #     pass
 
-        try:
-            if data['personal_skills']:
-                personal_skills = data['personal_skills']
-        except Exception:
-            pass
+        # try:
+        #     if data['work_experience']:
+        #         work_experience = data['work_experience']
+        # except Exception:
+        #     pass
 
-        try:
-            if data['languages']:
-                languages = data['languages']
-        except Exception:
-            pass
+        # try:
+        #     if data['education']:
+        #         education = data['education']
+        # except Exception:
+        #     pass
 
-        User.objects.create(
-            first_name=first_name,
-            last_name=last_name,
-            login=login,
-            password=password,
-            email=email,
-            birthday=birthday,
-            mphone=mphone,
-            photo=photo,
-            experience_summary=experience_summary,
-            technical_skills=technical_skills,
-            work_experience=work_experience,
-            education=education,
-            personal_skills=personal_skills,
-            languages=languages
-        )
+        # try:
+        #     if data['personal_skills']:
+        #         personal_skills = data['personal_skills']
+        # except Exception:
+        #     pass
+
+        # try:
+        #     if data['languages']:
+        #         languages = data['languages']
+        # except Exception:
+        #     pass
+
+        # User.objects.create(
+        #     first_name=first_name,
+        #     last_name=last_name,
+        #     login=login,
+        #     password=password,
+        #     email=email,
+        #     birthday=birthday,
+        #     mphone=mphone,
+        #     photo=photo,
+        #     experience_summary=experience_summary,
+        #     technical_skills=technical_skills,
+        #     work_experience=work_experience,
+        #     education=education,
+        #     personal_skills=personal_skills,
+        #     languages=languages
+        # )

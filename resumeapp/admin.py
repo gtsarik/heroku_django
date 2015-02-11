@@ -19,7 +19,7 @@ class UserForm(forms.ModelForm):
 
         self.fields['password'].widget = forms.PasswordInput()
 
-    def save(self):
+    def save(self, force_insert=False, force_update=False, commit=True):
         data = self.cleaned_data
         data['password'] += SALT_KEY
         password = hashlib.sha224(data['password']).hexdigest()

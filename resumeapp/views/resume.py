@@ -7,14 +7,6 @@ from ..models.users import User
 
 
 def resume_list(request):
-    experience = [
-        'EXPERIENCE SUMMARY:',
-        'DEVELOPERS and TECHNICAL SKILLS:',
-        'WORK EXPERIENCE:',
-        'EDUCATION and TRAINING:',
-        'PERSONAL SKILLS:',
-        'LANGUAGES:'
-    ]
     experience_summary = []
     technical_skills = []
     work_experience = []
@@ -59,6 +51,5 @@ def resume_list(request):
         'work_experience': work_experience,
         'education': education,
         'personal_skills': personal_skills,
-        'languages': languages,
-        'experience': experience}
+        'languages': languages}
     )

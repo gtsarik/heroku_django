@@ -16,11 +16,10 @@ class UserForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         # call original initializator
         super(UserForm, self).__init__(*args, **kwargs)
-
         self.fields['password'].widget = forms.PasswordInput()
 
-    def save_model(self, request, obj, form, change):
-        super(UserForm, self).save_model(request, obj, form, change)
+    def save(self, commit=True, force_insert=False, force_update=False, *args, **kwargs):
+        super(UserForm, self).save(commit=False, *args, **kwargs)
         data = self.cleaned_data
         data['password'] += SALT_KEY
         password = hashlib.sha224(data['password']).hexdigest()

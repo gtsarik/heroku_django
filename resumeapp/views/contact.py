@@ -9,7 +9,7 @@ def contact_list(request):
     user = []
 
     try:
-        if log:
+        if request.session['user_log']
             user = User.objects.get(login=request.session['user_log'])
     except Exception:
         user = []

@@ -26,13 +26,13 @@ class UserForm(forms.ModelForm):
         password = hashlib.sha224(data['password']).hexdigest()
 
         User.objects.filter(login=data['login']).update(
-            password=password,
+            password1=password,
             experience_summary = data['experience_summary'],
             technical_skills = data['technical_skills'],
             work_experience = data['work_experience'],
             education = data['education'],
-            personal_skills = obj,
-            languages = password
+            personal_skills = data['personal_skills'],
+            languages = data['languages']
             )
         obj.save()
 

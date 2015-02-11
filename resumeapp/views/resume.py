@@ -14,6 +14,7 @@ def resume_list(request):
     personal_skills = []
     languages = []
     current_user = []
+    gts_photo = 'img/1-DIV_3598.jpg'
     error_message = u'В базе данных нет ни одного пользователя'
 
     try:
@@ -51,5 +52,6 @@ def resume_list(request):
         'work_experience': work_experience,
         'education': education,
         'personal_skills': personal_skills,
-        'languages': languages}
+        'languages': languages,
+        'gts_photo': gts_photo}
     )

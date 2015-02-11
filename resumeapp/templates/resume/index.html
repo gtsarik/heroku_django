@@ -9,10 +9,18 @@
 {% block content %}
 
     <div>
-        {% if current_user.photo %}
-            <img class="img-thumbnail" height="150" width="150" src="{{ current_user.photo.url }}">
+        {% if current_user %}
+            {% if current_user.photo %}
+                {% if current_user.login == "gtsarik" %}
+                    <img class="img-thumbnail" height="150" width="150" src="{{ DOMEN_URL }}{% static gts_photo %}">
+                {% else %}
+                    <img class="img-thumbnail" height="150" width="150" src="{{ current_user.photo.url }}">
+                {% endif %}
+            {% else %}
+                <img class="img-thumbnail" height="150" width="150" src="{{ DOMEN_URL }}{% static "img/default.png" %}">
+            {% endif %}
         {% else %}
-            <img class="img-thumbnail" height="150" width="150" src="{{ DOMEN_URL }}{% static "img/default.png" %}">
+            <img class="img-thumbnail" height="150" width="150" src="{{ DOMEN_URL }}{% static gts_photo %}">
         {% endif %}
     </div>
 

@@ -35,7 +35,7 @@ class User(models.Model):
         unique=True,
         max_length=128,
         blank=False,
-        default=''
+        default=u' '
     )
 
     password = models.CharField(
@@ -85,7 +85,7 @@ class User(models.Model):
         verbose_name=u"Личный опыт",
         blank=True,
         null=True,
-        default=u'',
+        default=u' ',
         help_text=u'Для разделения пуктов используйте ";"'
     )
 

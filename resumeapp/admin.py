@@ -2,8 +2,10 @@
 
 from django.contrib import admin
 from django import forms
+import hashlib
 
 from .models.users import User
+from resume.settings import SALT_KEY
 
 
 class UserForm(forms.ModelForm):
@@ -16,6 +18,21 @@ class UserForm(forms.ModelForm):
         super(UserForm, self).__init__(*args, **kwargs)
 
         self.fields['password'].widget = forms.PasswordInput()
+
+    def save(self):
+        data = self.cleaned_data
+        data['password'] += SALT_KEY
+        password = hashlib.sha224(data['password']).hexdigest()
+
+        User.objects.filter(login=data['login']).update(
+            password=password,
+            experience_summary = data['experience_summary'],
+            technical_skills = data['technical_skills'],
+            work_experience = data['work_experience'],
+            education = data['education'],
+            personal_skills = data['personal_skills'],
+            languages = data['languages']
+            )
 
 
 class UserAdmin(admin.ModelAdmin):

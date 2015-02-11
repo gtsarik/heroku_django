@@ -46,12 +46,12 @@
                     <p id="user-registr">
                         {% if request.session.user_img %}
                             {% if request.session.user_log == "gtsarik" %}
-                                <img class="img-thumbnail" height="50" width="50" src="{{ PHOTO_PATH.url }}">
-                            {% else %}
                                 <img class="img-thumbnail" height="50" width="50" src="{{ DOMEN_URL }}{% static "img/1-DIV_3598.jpg" %}">
+                            {% else %}
+                                <img class="img-thumbnail" height="50" width="50" src="{{ PHOTO_PATH.url }}">
                             {% endif %}
                         {% else %}
-                            <img class="img-circle" height="50" width="50" src="{{ DOMEN_URL }}{% static "img/default.png" %}" id="leftimg">
+                            <img class="img-circle" height="50" width="50" src="{{ DOMEN_URL }}{% static "img/default.png" %}">
                         {% endif %}
                         <mark>{{ request.session.user_auth }}</mark>
                         <a class="btn btn-link" id="btn-exit" href="{% url 'logout' %}"> Выйти</a>

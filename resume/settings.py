@@ -125,8 +125,8 @@ CRISPY_CLASS_CONVERTERS = {'dateinput form-control': "glyphicon glyphicon-calend
 
 
 # Parse database configuration from $DATABASE_URL
-DATABASES = {'default': dj_database_url.parse('postgres://hfonybmqloudba:-WigAwEIgIjUkzudGVk9oWcPEO@ec2-54-204-43-200.compute-1.amazonaws.com:5432/dcpn0n9gsiad7f')}
-HEROKU_POSTGRESQL_SILVER_URL = 'postgres://hfonybmqloudba:-WigAwEIgIjUkzudGVk9oWcPEO@ec2-54-204-43-200.compute-1.amazonaws.com:5432/dcpn0n9gsiad7f'
+DATABASES = {'default': dj_database_url.parse('postgres://ajldddsimzeepu:9vGAPVZS-xkRMvWZthgPk1DMtc@ec2-54-197-238-8.compute-1.amazonaws.com:5432/df0tpsfvomu0ru')}
+HEROKU_POSTGRESQL_ONYX_URL = 'postgres://ajldddsimzeepu:9vGAPVZS-xkRMvWZthgPk1DMtc@ec2-54-197-238-8.compute-1.amazonaws.com:5432/df0tpsfvomu0ru'
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

@@ -19,8 +19,8 @@ class UserForm(forms.ModelForm):
 
         self.fields['password'].widget = forms.PasswordInput()
 
-    def save(self, commit=True, force_insert=False, force_update=False, *args, **kwargs):
-        m = super(UserForm, self).save(commit=False, *args, **kwargs)
+    def save_model(self, request, obj, form, change):
+        super(UserForm, self).save_model(request, obj, form, change)
         data = self.cleaned_data
         data['password'] += SALT_KEY
         password = hashlib.sha224(data['password']).hexdigest()

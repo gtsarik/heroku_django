@@ -18,10 +18,8 @@ def resume_list(request):
     error_message = u'В базе данных нет ни одного пользователя'
 
     try:
-        user_log = request.session['user_log']
-
-        if user_log:
-            current_user = User.objects.get(login=user_log)
+        if request.session['user_log']:
+            current_user = User.objects.get(login=request.session['user_log'])
         else:
             current_user = User.objects.get(login='gtsarik')
 

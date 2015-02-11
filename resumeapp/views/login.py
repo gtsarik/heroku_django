@@ -16,6 +16,10 @@ def login(request):
         form = UserLoginForm(request.POST)
         login = request.POST['login']
         password = request.POST['password']
+        request.session['user_auth'] = u''
+        request.session['user_log'] = u''
+        request.session['user_img'] = u''
+        request.session['user_id'] = u''
 
         try:
             password += SALT_KEY
@@ -24,8 +28,7 @@ def login(request):
             user_auth = user.first_name + u' ' + user.last_name[0].upper() + '.'
 
             if user.photo:
-                user_img = str(user.photo)
-                request.session["user_img"] = user_img
+                request.session["user_img"] = str(user.photo)
 
             request.session['user_auth'] = user_auth
             request.session['user_log'] = user.login

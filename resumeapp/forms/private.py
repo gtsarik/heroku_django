@@ -5,8 +5,10 @@ from django.forms import ModelForm
 from django.core.urlresolvers import reverse
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
+import hashlib
 
 from ..models.users import User
+from resume.settings import SALT_KEY
 
 
 class PrivateForm(ModelForm):
@@ -45,3 +47,42 @@ class PrivateForm(ModelForm):
         self.helper.add_input(Submit('cancel_button', u'Отменить изменения', css_class="btn btn-link"),)
 
         self.fields['password'].widget = forms.PasswordInput()
+
+    def save(self):
+        data = self.cleaned_data
+        data['password'] += SALT_KEY
+        data['password'] = hashlib.sha224(data['password']).hexdigest()
+
+        first_name = data['first_name']
+        last_name = data['last_name'] 
+        login = data['login']
+        password = data['password']
+        email = data['email']
+        birthday = data['birthday']
+        mphone = data['mphone']
+        photo = data['photo']
+
+        experience_summary = data['experience_summary']
+        technical_skills = data['technical_skills']
+        work_experience = data['work_experience']
+        education = data['education']
+        personal_skills = data['personal_skills']
+        languages = data['languages']
+
+
+        User.objects.create(
+            first_name=first_name,
+            last_name=last_name,
+            login=login,
+            password=password,
+            email=email,
+            birthday=birthday,
+            mphone=mphone,
+            photo=photo,
+            experience_summary=experience_summary,
+            technical_skills=technical_skills,
+            work_experience=work_experience,
+            education=education,
+            personal_skills=personal_skills,
+            languages=languages
+        )

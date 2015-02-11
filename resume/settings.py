@@ -123,7 +123,6 @@ CRISPY_CLASS_CONVERTERS = {'dateinput form-control': "glyphicon glyphicon-calend
 
 # Parse database configuration from $DATABASE_URL
 DATABASES = {'default': dj_database_url.parse('postgres://iyxsjhqzntojlg:6VQwZMtLmHDD0TK6w591mqbsCF@ec2-54-204-27-32.compute-1.amazonaws.com:5432/desld3uaglnd93')}
-# DATABASES['default'] =  dj_database_url.config('postgres://rbfrtnwxyfgtfn:Fd-_Va27VPHTumBqecpZc3IyIY@ec2-174-129-213-103.compute-1.amazonaws.com:5432/d6o2soljsnsmmk')
 HEROKU_POSTGRESQL_TEAL_URL = 'postgres://iyxsjhqzntojlg:6VQwZMtLmHDD0TK6w591mqbsCF@ec2-54-204-27-32.compute-1.amazonaws.com:5432/desld3uaglnd93'
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
@@ -135,18 +134,8 @@ ALLOWED_HOSTS = ['*']
 # Enable Connection Pooling
 DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
-
-
-# Pool size is configurable
-# DATABASE_POOL_ARGS = {
-#     'max_overflow': 10,
-#     'pool_size': 2,
-#     'recycle': 300
-# }
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'

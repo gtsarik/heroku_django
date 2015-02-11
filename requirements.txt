@@ -13,7 +13,7 @@ django-simple-math-captcha==1.0.5
 freetype-py==1.0
 gunicorn==19.2.1
 passlib==1.6.2
-psycopg2==2.6
+psycopg2==2.4.1
 six==1.9.0
 whitenoise==1.0.6
 wsgiref==0.1.2

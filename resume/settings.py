@@ -113,13 +113,16 @@ CRISPY_CLASS_CONVERTERS = {'dateinput form-control': "glyphicon glyphicon-calend
 # Database settings for debug
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django_postgrespool',
-#         'HOST': 'ec2-174-129-213-103.compute-1.amazonaws.com',
-#         'USER': 'rbfrtnwxyfgtfn',
-#         'PASSWORD': 'Fd-_Va27VPHTumBqecpZc3IyIY',
-#         'NAME': 'd6o2soljsnsmmk',
+#         'ENGINE': 'django.db.backends.mysql',
+#         # 'NAME': os.path.join(BASE_DIR, '..', 'db.sqlite3'),
+#         'HOST': 'localhost',
+#         'USER': 'resume_db_user',
+#         'PASSWORD': '123',
+#         'NAME': 'resume_db',
+#         'TEST_NAME': 'resume_db_test'
 #     }
 # }
+
 
 # Parse database configuration from $DATABASE_URL
 DATABASES = {'default': dj_database_url.parse('postgres://hfonybmqloudba:-WigAwEIgIjUkzudGVk9oWcPEO@ec2-54-204-43-200.compute-1.amazonaws.com:5432/dcpn0n9gsiad7f')}
@@ -133,6 +136,9 @@ ALLOWED_HOSTS = ['*']
 
 # Enable Connection Pooling
 DATABASES['default']['ENGINE'] = 'django_postgrespool'
+
+
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

@@ -3,6 +3,7 @@
 from django.contrib import admin
 from django import forms
 import hashlib
+from django.db import connections, DEFAULT_DB_ALIAS
 
 from .models.users import User
 from resume.settings import SALT_KEY
@@ -18,8 +19,7 @@ class UserForm(forms.ModelForm):
         super(UserForm, self).__init__(*args, **kwargs)
         self.fields['password'].widget = forms.PasswordInput()
 
-    def save(self, commit=True, force_insert=False, force_update=False, *args, **kwargs):
-        super(UserForm, self).save(commit=False, *args, **kwargs)
+    def save(self, commit=True):
         data = self.cleaned_data
         data['password'] += SALT_KEY
         password = hashlib.sha224(data['password']).hexdigest()
@@ -33,6 +33,8 @@ class UserForm(forms.ModelForm):
             personal_skills = kwargs,
             languages = password
             )
+
+        return super(UserForm, self).save(commit)
 
 
 class UserAdmin(admin.ModelAdmin):

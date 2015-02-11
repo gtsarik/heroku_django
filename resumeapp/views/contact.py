@@ -7,6 +7,7 @@ from resumeapp.models.users import User
 
 def contact_list(request):
     user = []
+    log = u''
 
     try:
         log = request.session['user_log']

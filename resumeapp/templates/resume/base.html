@@ -45,7 +45,11 @@
                 {% else %}
                     <p id="user-registr">
                         {% if request.session.user_img %}
-                            <img class="img-thumbnail" height="50" width="50" src="{{ PHOTO_PATH.url }}">
+                            {% if request.session.user_log == "gtsarik" %}
+                                <img class="img-thumbnail" height="50" width="50" src="{{ PHOTO_PATH.url }}">
+                            {% else %}
+                                <img class="img-thumbnail" height="50" width="50" src="{{ DOMEN_URL }}{% static "img/1-DIV_3598.jpg" %}">
+                            {% endif %}
                         {% else %}
                             <img class="img-circle" height="50" width="50" src="{{ DOMEN_URL }}{% static "img/default.png" %}" id="leftimg">
                         {% endif %}

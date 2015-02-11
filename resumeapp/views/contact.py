@@ -7,10 +7,11 @@ from resumeapp.models.users import User
 
 def contact_list(request):
     user = []
-    
+
     try:
         if request.session['user_auth']:
             user = User.objects.get(login=request.session['user_log'])
+            return render(request,'resume/home.html',{'user': user})
     except Exception:
         user = []
 

@@ -8,7 +8,8 @@ from resumeapp.models.users import User
 def contact_list(request):
     user = []
 
-    log = request.session['user_auth']
+    auth = request.session['user_auth']
+    log = request.session['user_log']
 
     try:
         if request.session['user_auth']:
@@ -21,5 +22,6 @@ def contact_list(request):
         request,
         'resume/contact.html',
         {'user': user,
-        'log': log}
+        'log': log,
+        'auth': auth}
     )

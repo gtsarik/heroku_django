@@ -16,6 +16,13 @@
         {% endif %}
     </div>
 
+    <div class="col-xs-4">
+        EXPERIENCE
+    </div>
+    <div class="col-xs-8">
+        SKILLS
+    </div>
+
     <table class="table table-hover table-striped">
         <thead>
             <tr>
@@ -36,7 +43,7 @@
                 </td>
             </tr>
             <tr>
-                <td><h5>DEVELOPERS and TECHNICAL SKILLS::</h5></td>
+                <td><h5>DEVELOPERS and TECHNICAL SKILLS:</h5></td>
                 <td>
                     {% if current_user.technical_skills %}
                         {% for n in technical_skills %}
@@ -86,5 +93,6 @@
                 </td>
             </tr>
         </tbody>
+    </table>
 
 {% endblock content%}

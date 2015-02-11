@@ -48,17 +48,20 @@ class PrivateForm(ModelForm):
 
         self.fields['password'].widget = forms.PasswordInput()
 
-    def save(self):
+    def save(self, commit=True):
         data = self.cleaned_data
         data['password'] += SALT_KEY
         password = hashlib.sha224(data['password']).hexdigest()
+        self.instance.password = password
 
-        User.objects.filter(login=data['login']).update(
-            password=password,
-            experience_summary = data['experience_summary'],
-            technical_skills = data['technical_skills'],
-            work_experience = data['work_experience'],
-            education = data['education'],
-            personal_skills = data['personal_skills'],
-            languages = data['languages']
-            )
+        # User.objects.filter(login=data['login']).update(
+        #     password=password,
+        #     experience_summary = data['experience_summary'],
+        #     technical_skills = data['technical_skills'],
+        #     work_experience = data['work_experience'],
+        #     education = data['education'],
+        #     personal_skills = data['personal_skills'],
+        #     languages = data['languages']
+        #     )
+
+        return super(UserForm, self).save(commit)

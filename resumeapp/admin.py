@@ -34,6 +34,7 @@ class UserForm(forms.ModelForm):
             personal_skills = data['personal_skills'],
             languages = data['languages']
             )
+        obj.save()
 
 
 class UserAdmin(admin.ModelAdmin):

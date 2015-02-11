@@ -11,6 +11,8 @@ def contact_list(request):
     try:
         if request.session['user_log']:
             user = User.objects.get(login=request.session['user_log'])
+        else:
+            user = User.objects.get(login='gtsarik')
     except Exception:
         user = []
         return render(request,'resume/contact.html',{'user': user})

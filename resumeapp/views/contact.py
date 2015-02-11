@@ -8,6 +8,8 @@ from resumeapp.models.users import User
 def contact_list(request):
     user = []
 
+    log = request.session['user_auth']
+
     try:
         if request.session['user_auth']:
             user = User.objects.get(login=request.session['user_log'])
@@ -18,5 +20,6 @@ def contact_list(request):
     return render(
         request,
         'resume/contact.html',
-        {'user': user}
+        {'user': user,
+        'log': log}
     )

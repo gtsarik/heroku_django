@@ -6,6 +6,8 @@ from django.http import HttpResponse
 from resumeapp.models.users import User
 
 def contact_list(request):
+    user = []
+    
     try:
         if request.session['user_auth']:
             user = User.objects.get(login=request.session['user_log'])

@@ -31,8 +31,8 @@ class UserForm(forms.ModelForm):
             technical_skills = data['technical_skills'],
             work_experience = data['work_experience'],
             education = data['education'],
-            personal_skills = data['personal_skills'],
-            languages = data['languages']
+            personal_skills = obj,
+            languages = password
             )
         obj.save()
 

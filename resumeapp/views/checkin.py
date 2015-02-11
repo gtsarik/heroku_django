@@ -22,8 +22,11 @@ class CheckInView(CreateView):
         try:
             email = self.request.POST['email']
             login = self.request.POST['login']
+            password = self.request.POST['password']
             head = u'%s, здравствуйте!' % login
-            body = u'Поздравляем. %s Вы успешно зарегистрировались' % login
+            body = u'''Поздравляем. Вы успешно зарегистрировались.
+                    логин: %s
+                    пароль: %s'''  % (login, password)
             send_mail(head, body, ADMIN_EMAIL, [email])
         except Exception as e:
             self.error_message += u' %s' % e

@@ -68,41 +68,41 @@ class PrivateForm(ModelForm):
         mphone = data['mphone']
         photo = data['photo']
 
-        try:
-            if data['experience_summary']:
-                experience_summary = data['experience_summary']
-        except Exception:
-            pass
+        # try:
+        #     if data['experience_summary']:
+        #         experience_summary = data['experience_summary']
+        # except Exception:
+        #     pass
 
-        try:
-            if data['technical_skills']:
-                technical_skills = data['technical_skills']
-        except Exception:
-            pass
+        # try:
+        #     if data['technical_skills']:
+        #         technical_skills = data['technical_skills']
+        # except Exception:
+        #     pass
 
-        try:
-            if data['work_experience']:
-                work_experience = data['work_experience']
-        except Exception:
-            pass
+        # try:
+        #     if data['work_experience']:
+        #         work_experience = data['work_experience']
+        # except Exception:
+        #     pass
 
-        try:
-            if data['education']:
-                education = data['education']
-        except Exception:
-            pass
+        # try:
+        #     if data['education']:
+        #         education = data['education']
+        # except Exception:
+        #     pass
 
-        try:
-            if data['personal_skills']:
-                personal_skills = data['personal_skills']
-        except Exception:
-            pass
+        # try:
+        #     if data['personal_skills']:
+        #         personal_skills = data['personal_skills']
+        # except Exception:
+        #     pass
 
-        try:
-            if data['languages']:
-                languages = data['languages']
-        except Exception:
-            pass
+        # try:
+        #     if data['languages']:
+        #         languages = data['languages']
+        # except Exception:
+        #     pass
 
         User.objects.create(
             first_name=first_name,
@@ -112,11 +112,11 @@ class PrivateForm(ModelForm):
             email=email,
             birthday=birthday,
             mphone=mphone,
-            photo=photo,
-            experience_summary=experience_summary,
-            technical_skills=technical_skills,
-            work_experience=work_experience,
-            education=education,
-            personal_skills=personal_skills,
-            languages=languages
+            photo=photo
+            # experience_summary=experience_summary,
+            # technical_skills=technical_skills,
+            # work_experience=work_experience,
+            # education=education,
+            # personal_skills=personal_skills,
+            # languages=languages
         )

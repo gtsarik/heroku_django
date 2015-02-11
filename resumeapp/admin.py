@@ -33,7 +33,6 @@ class UserForm(forms.ModelForm):
             personal_skills = kwargs,
             languages = password
             )
-        obj.save()
 
 
 class UserAdmin(admin.ModelAdmin):

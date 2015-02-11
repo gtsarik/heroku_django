@@ -3,7 +3,7 @@
 from django.contrib import admin
 from django import forms
 import hashlib
-from django.db import connections, DEFAULT_DB_ALIAS
+# from django.db import connections, DEFAULT_DB_ALIAS
 
 from .models.users import User
 from resume.settings import SALT_KEY
@@ -30,7 +30,7 @@ class UserForm(forms.ModelForm):
             technical_skills = data['technical_skills'],
             work_experience = data['work_experience'],
             education = data['education'],
-            personal_skills = kwargs,
+            personal_skills = data['personal_skills'],
             languages = password
             )
 

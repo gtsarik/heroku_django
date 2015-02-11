@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+from django.db import connection
 from django.core.validators import validate_email, MinLengthValidator, MaxLengthValidator, RegexValidator
 
 from resume.settings import MIN_VAL_PASS, MAX_VAL_PASS
 
+
+curs = connection.cursor()
+curs.execute('SET autocommit = 1')
 
 # Create models Users here.
 class User(models.Model):
